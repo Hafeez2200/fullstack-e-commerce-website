@@ -35,6 +35,4 @@ ecommerce/
 
 Frontend is being developed first. Backend and API routes will be integrated in the next phase.
 
-## 📄 License
 
-[MIT](LICENSE)
