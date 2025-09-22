@@ -108,7 +108,7 @@ const Footer = () => {
                 <TbBrandMeta className=" h-5 w-5" />
             </a>
             <a
-              href="https://www.facebook.com"
+              href="https://www.instagram.com"
               target="_blank"
               rel="noopener noreferrer"
               className=" hover:text-gray-500"
@@ -116,7 +116,7 @@ const Footer = () => {
                 <IoLogoInstagram className=" h-5 w-5" />
             </a>
             <a
-              href="https://www.facebook.com"
+              href="https://www.twitter.com"
               target="_blank"
               rel="noopener noreferrer"
               className=" hover:text-gray-500"
@@ -128,6 +128,13 @@ const Footer = () => {
           <p> <FiPhoneCall className=" inline-block mr-2" />
           0123-456-789 </p>
         </div>
+      </div>
+
+      {/* Footer Bottom */}
+      <div className=" container mx-auto mt-12 px-4 lg:px-0 border-t border-gray-300 pt-6">
+        <p className=" text-gray-500 text-sm tracking-tighter text-center">
+          © 2025, CompileTab, All Rights Reserved.
+        </p>
       </div>
     </footer>
   );
