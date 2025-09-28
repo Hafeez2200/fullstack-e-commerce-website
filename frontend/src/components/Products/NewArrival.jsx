@@ -94,8 +94,7 @@ const NewArrival = () => {
     SetIsDragging(true);
     setStartX(e.pageX-scrollRef.current.offsetLeft);
     setScrollLeft(scrollRef.current.scrollLeft);
-    console.log("startx : ", startX );
-    console.log("pagex : ",e.pageX);
+    
     
     
   }
