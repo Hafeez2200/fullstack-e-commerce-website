@@ -3,7 +3,7 @@
 
 This is a full-stack e-commerce web application built with the MERN stack (MongoDB, Express, React, Node.js).
 
-> ⚠️ Project is under active development — currently ~5% complete.
+> ⚠️ Project is under active development — currently ~15% complete.
 
 ## 🚀 Features (Planned)
 
