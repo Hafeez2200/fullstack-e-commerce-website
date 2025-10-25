@@ -24,7 +24,7 @@ const Register = () => {
             Enter your username and password to Login
           </p>
           <div className=" mb-4">
-            <label className=" block text-sm font-semibold mb-2">Email</label>
+            <label className=" block text-sm font-semibold mb-2">Name</label>
             <input
               type="text"
               value={name}
