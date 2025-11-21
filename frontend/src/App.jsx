@@ -7,6 +7,9 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Profile from './pages/Profile';
 import CollectionsPage from "./pages/CollectionsPage";
+import ProductDetails from "./components/Products/ProductDetails";
+import Checkout from "./components/Cart/Checkout";
+import OrderConfirmation from "./pages/OrderConfirmation";
 
 const App = () => {
   return (
@@ -19,6 +22,9 @@ const App = () => {
           <Route path="register" element={<Register />} />
           <Route path="profile" element={<Profile />} />
           <Route path="collections/:collection" element={<CollectionsPage />} />
+          <Route path="product/:id" element ={ <ProductDetails/> }/>
+          <Route path="checkout" element={<Checkout/>}/>
+          <Route path="order-confirmation" element ={<OrderConfirmation/>}/>
         </Route>
 
         <Route> {/*Admin Layout*/} </Route>

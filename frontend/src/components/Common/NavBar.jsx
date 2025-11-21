@@ -100,7 +100,7 @@ const NavBar = () => {
           <h2 className=" text-xl font-semibold mb-4">Menu</h2>
           <nav className=" space-y-4">
             <Link
-              to="#"
+              to="collections/all"
               onClick={toogleNavDrawer}
               className=" block text-gray-700 hover:text-black"
             >
