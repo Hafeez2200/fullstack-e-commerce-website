@@ -38,6 +38,10 @@ const Checkout = () => {
     e.preventDefault();
     setCheckoutId(123);
   };
+  const handleOrderConfirmation = (e)=>{
+    e.preventDefault();
+    navigate("/order-confirmation")
+  }
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl mx-auto py-10 px-6 tracking-tighter">
       {/* left Section */}
@@ -176,7 +180,10 @@ const Checkout = () => {
               <div>
                 <h3 className=" text-lg mb-4">Pay with Paypal</h3>
                 {/* paypal component */}
-                <button className=" w-full italic text-xl bg-yellow-400 text-blue-900 py-3 rounded font-bold">
+                <button
+                  onClick={handleOrderConfirmation}
+                  className=" w-full italic text-xl bg-yellow-400 text-blue-900 py-3 rounded font-bold"
+                >
                   Paypal
                 </button>
               </div>
@@ -200,28 +207,26 @@ const Checkout = () => {
                   className=" w-20 h-24 object-cover mr-4"
                 />
                 <div>
-                    <h3 className=" text-md ">{product.name}</h3>
-                    <p className=" text-gray-500">Size: {product.size} </p>
-                    <p className=" text-gray-500">Color: {product.color} </p>
-                    
+                  <h3 className=" text-md ">{product.name}</h3>
+                  <p className=" text-gray-500">Size: {product.size} </p>
+                  <p className=" text-gray-500">Color: {product.color} </p>
                 </div>
-                
               </div>
               <p className=" text-xl"> ${product.price?.toLocaleString()} </p>
             </div>
           ))}
         </div>
         <div className=" flex justify-between items-center text-lg mb-4">
-            <p>Subtotal</p>
-            <p>${cart.totalPrice?.toLocaleString()} </p>
+          <p>Subtotal</p>
+          <p>${cart.totalPrice?.toLocaleString()} </p>
         </div>
         <div className=" flex justify-between items-center text-lg">
-            <p>Shipping</p>
-            <p>Free</p>
+          <p>Shipping</p>
+          <p>Free</p>
         </div>
         <div className="flex justify-between items-center text-lg mt-4 border-t pt-4 border-gray-300">
-            <p>Total</p>
-            <p> ${cart.totalPrice?.toLocaleString()} </p>
+          <p>Total</p>
+          <p> ${cart.totalPrice?.toLocaleString()} </p>
         </div>
       </div>
     </div>
