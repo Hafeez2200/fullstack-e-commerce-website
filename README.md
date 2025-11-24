@@ -8,11 +8,11 @@ This is a full-stack e-commerce web application built with the MERN stack (Mongo
 ## 🚀 Features (Planned)
 
 - ✅ Responsive frontend using React
-- ⬜️ Backend with Express & MongoDB
-- ⬜️ User authentication (JWT)
+- ✅ Admin dashboard
+- ✅ Backend with Express & MongoDB
+- ✅ User authentication (JWT)
 - ⬜️ Product listings and filters
 - ⬜️ Shopping cart functionality
-- ⬜️ Admin dashboard
 - ⬜️ Stripe payment integration
 
 ## 📁 Folder Structure
@@ -20,7 +20,7 @@ This is a full-stack e-commerce web application built with the MERN stack (Mongo
 ```
 ecommerce/
 ├── frontend/      # React app
-├── backend/       # Will be added later
+├── backend/       
 ├── .gitignore
 └── README.md
 ```
@@ -28,11 +28,11 @@ ecommerce/
 ## 🛠 Tech Stack
 
 - **Frontend**: React, React Router, Axios, etc.
-- **Backend**: Node.js, Express (coming soon)
-- **Database**: MongoDB (coming soon)
+- **Backend**: Node.js, Express 
+- **Database**: MongoDB 
 
 ## 📌 Status
 
-Frontend is being developed first. Backend and API routes will be integrated in the next phase.
+Under Development 50% is completed working on backend
 
 
