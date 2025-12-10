@@ -3,7 +3,7 @@
 
 This is a full-stack e-commerce web application built with the MERN stack (MongoDB, Express, React, Node.js).
 
-> ⚠️ Project is under active development — currently ~50% complete.
+> ⚠️ Project is under active development — currently ~80% complete.
 
 ## 🚀 Features (Planned)
 
@@ -11,9 +11,8 @@ This is a full-stack e-commerce web application built with the MERN stack (Mongo
 - ✅ Admin dashboard
 - ✅ Backend with Express & MongoDB
 - ✅ User authentication (JWT)
+- ✅ Shopping cart functionality
 - ⬜️ Product listings and filters
-- ⬜️ Shopping cart functionality
-- ⬜️ Stripe payment integration
 
 ## 📁 Folder Structure
 
@@ -33,6 +32,6 @@ ecommerce/
 
 ## 📌 Status
 
-Under Development 50% is completed working on backend
+Under Development 80% is completed working on redux state management
 
 
