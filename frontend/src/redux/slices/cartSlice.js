@@ -33,7 +33,7 @@ export const fetchCart = createAsyncThunk(
 
 // Add an item to the cart for a user or guest
 export const addToCart = createAsyncThunk(
-  "cart/addToCart",
+  "cart/addToCart", 
   async (
     { productId, quantity, size, color, guestId, userId },
     { rejectWithValue }

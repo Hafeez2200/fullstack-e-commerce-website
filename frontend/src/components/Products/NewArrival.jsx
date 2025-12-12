@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useEffect, useRef, useState } from "react";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import { Link } from "react-router-dom";
@@ -10,112 +11,44 @@ const NewArrival = () => {
   const [scrollLeft, setScrollLeft] = useState(false);
   const [canScrollRight, setcanScrollRight] = useState(true);
 
-  const newArrivals = [
-    {
-      _id: "1",
-      name: "Stylish Jacket",
-      price: 120,
-      images: [
-        {
-          url: "https://picsum.photos/500/500?random=1",
-          altText: "Sylish Jacket",
-        },
-      ],
-    },
-    {
-      _id: "2",
-      name: "Stylish Jacket",
-      price: 120,
-      images: [
-        {
-          url: "https://picsum.photos/500/500?random=2",
-          altText: "Sylish Jacket",
-        },
-      ],
-    },
-    {
-      _id: "3",
-      name: "Stylish Jacket",
-      price: 120,
-      images: [
-        {
-          url: "https://picsum.photos/500/500?random=3",
-          altText: "Sylish Jacket",
-        },
-      ],
-    },
-    {
-      _id: "4",
-      name: "Stylish Jacket",
-      price: 120,
-      images: [
-        {
-          url: "https://picsum.photos/500/500?random=4",
-          altText: "Sylish Jacket",
-        },
-      ],
-    },
-    {
-      _id: "5",
-      name: "Stylish Jacket",
-      price: 120,
-      images: [
-        {
-          url: "https://picsum.photos/500/500?random=5",
-          altText: "Sylish Jacket",
-        },
-      ],
-    },
-    {
-      _id: "6",
-      name: "Stylish Jacket",
-      price: 120,
-      images: [
-        {
-          url: "https://picsum.photos/500/500?random=6",
-          altText: "Sylish Jacket",
-        },
-      ],
-    },
-    {
-      _id: "7",
-      name: "Stylish Jacket",
-      price: 120,
-      images: [
-        {
-          url: "https://picsum.photos/500/500?random=7",
-          altText: "Sylish Jacket",
-        },
-      ],
-    },
-  ];
+  const [newArrivals, setNewArrivals] = useState([]);
 
-  const handleMouseDown = (e)=>{
+  useEffect(() => {
+    const fetchNewArrivals = async () => {
+      try {
+        const response = await axios.get(
+          `${import.meta.env.VITE_BACKEND_URL}/api/products/new-arrivals`
+        );
+        setNewArrivals(response.data);
+      } catch (error) {
+        console.error(error)
+      }
+    };
+    fetchNewArrivals();
+  },[]);
+
+
+  const handleMouseDown = (e) => {
     SetIsDragging(true);
-    setStartX(e.pageX-scrollRef.current.offsetLeft);
+    setStartX(e.pageX - scrollRef.current.offsetLeft);
     setScrollLeft(scrollRef.current.scrollLeft);
-    
-    
-    
-  }
+  };
 
-  const handleMouseMove =(e)=>{
-    if(!isDragging){
+  const handleMouseMove = (e) => {
+    if (!isDragging) {
       return;
     }
-    document.body.style.userSelect = 'none';
+    document.body.style.userSelect = "none";
 
     const x = e.pageX - scrollRef.current.offsetLeft;
     const walk = x - startX;
     scrollRef.current.scrollLeft = scrollLeft - walk;
-  }
+  };
 
-  const handleMouseUpOrLeave =(e)=>{
-    SetIsDragging(false)
-    document.body.style.userSelect = '';
-
-  }
-  
+  const handleMouseUpOrLeave = (e) => {
+    SetIsDragging(false);
+    document.body.style.userSelect = "";
+  };
 
   const scroll = (direction) => {
     const scrollAmount = direction === "left" ? -300 : 300;
@@ -128,12 +61,10 @@ const NewArrival = () => {
     if (container) {
       const leftScroll = container.scrollLeft;
       const rightScrollable =
-        container.scrollWidth > leftScroll + container.clientWidth +1;
+        container.scrollWidth > leftScroll + container.clientWidth + 1;
       setCanScrollLeft(leftScroll > 0);
       setcanScrollRight(rightScrollable);
     }
-
-    
   };
 
   useEffect(() => {
@@ -141,9 +72,9 @@ const NewArrival = () => {
     if (container) {
       container.addEventListener("scroll", updateScrollButtons);
       updateScrollButtons();
-      return () => container.removeEventListener("scroll",updateScrollButtons);
+      return () => container.removeEventListener("scroll", updateScrollButtons);
     }
-  }, []);
+  }, [newArrivals]);
 
   return (
     <section className=" py-16 px-4 lg:px-4">
@@ -167,11 +98,15 @@ const NewArrival = () => {
           >
             <FiChevronLeft className="text-2xl" />
           </button>
-          <button onClick={()=> scroll("right")} disabled={!canScrollRight} className={` p-2 rounded border ${
+          <button
+            onClick={() => scroll("right")}
+            disabled={!canScrollRight}
+            className={` p-2 rounded border ${
               canScrollRight
                 ? "bg-white text-black "
                 : "bg-gray-200 text-gray-400 cursor-not-allowed"
-            } `}>
+            } `}
+          >
             <FiChevronRight className="text-2xl" />
           </button>
         </div>
@@ -185,7 +120,9 @@ const NewArrival = () => {
         onMouseUp={handleMouseUpOrLeave}
         onMouseLeave={handleMouseUpOrLeave}
         ref={scrollRef}
-        className={` container mx-auto overflow-x-scroll flex space-x-6 relative ${isDragging ?"cursor-grabbing" : "cursor-grab" } `}
+        className={` container mx-auto overflow-x-scroll flex space-x-6 relative ${
+          isDragging ? "cursor-grabbing" : "cursor-grab"
+        } `}
       >
         {newArrivals.map((product) => (
           <div
@@ -196,7 +133,7 @@ const NewArrival = () => {
               src={product.images[0]?.url}
               alt={product.images[0]?.altText || product.name}
               className=" w-full h-[450px] object-cover rounded-lg "
-              draggable = {false}
+              draggable={false}
             />
             <div className=" absolute bottom-0 left-0 right-0 backdrop-blur-md text-white p-4 rounded-b-lg ">
               <Link to={`/product/${product._id}`} className=" block">
